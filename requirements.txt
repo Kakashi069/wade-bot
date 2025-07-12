@@ -1,0 +1,10 @@
+git+https://github.com/xr-coder/pyrofork
+natsort
+TgCrypto
+pymongo
+aiohttp
+uvloop
+python-dotenv
+apscheduler
+pytz
+python-dateutil
