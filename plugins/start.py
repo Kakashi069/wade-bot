@@ -40,10 +40,7 @@ Kindly Please join below channel(s).</b>'''
             return await replyMessage(message , fs_text or text , reply_markup = InlineKeyboardMarkup(returned))
     text = message.text
     if len(text.split()) == 1:
-        text = f'''<b>Hello {message.from_user.mention}
-        
-I can store private files in Specified Channel and other users can access it from special link.
-Do /help To Know More ❤️</b>'''
+        text = f'''<b>Hello {message.from_user.mention}</b>'''
         st_text = rec_['START_TEXT']
         if st_text:
             st_text = st_text.format(
