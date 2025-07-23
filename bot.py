@@ -6,6 +6,10 @@ from datetime import datetime
 from var import *
 import os
 
+import pyrogram.utils
+
+pyrogram.utils.MIN_CHANNEL_ID = -1009147483647
+
 class Bot(Client):
     def __init__(self):
         super().__init__(
