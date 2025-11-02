@@ -127,7 +127,7 @@ Kindly Please join below channel(s).</b>'''
         loop.create_task(clean_messages(AUTO_DELETE , to_delete))
     await temp.delete()
 
-@Client.on_message(filters.private & filters.command('broadcast') & filters.user(OWNER))
+@Client.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client, message):
     if message.reply_to_message:
         query = users_list
