@@ -11,6 +11,21 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from pyrogram.helpers import ikb
 
+
+@Client.on_chat_join_request()
+async def req_accept(c, m):
+    user_id = m.from_user.id
+    chat_id = m.chat.id
+        
+  #  if not Data.find_one({'id': user_id}): Data.insert_one({'id': user_id})
+    
+    await c.send_message(
+                    chat_id=user_id,
+                    text=f"<b>Hello 👋</b>",
+                   # reply_markup=get_back_keyboard()
+    )    
+    
+    
 @Client.on_message(filters.command(['start']))
 async def start(app , message):
     await add_user(message.from_user.id)
