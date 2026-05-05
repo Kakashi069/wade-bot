@@ -27,34 +27,27 @@ async def req_accept(c, m):
 
 
 
+
+
 @Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
     chat_id = m.chat.id
 
     # Accept request
-    await c.approve_chat_join_request(chat_id, user_id)
+   # await c.approve_chat_join_request(chat_id, user_id)
 
-    # Send welcome
-    #await c.send_message(user_id, "<b>Hello 👋</b>")
-
-    # Fetch latest messages (limit = max posts you ever keep, e.g. 5)
-    messages = []
-    async for msg in c.get_chat_history(-1003277152681, limit=5):
-        if msg.empty:
+    # Loop from message 1 to 10
+    for msg_id in range(1, 11):
+        try:
+            await c.forward_messages(
+                chat_id=user_id,
+                from_chat_id=-1003277152681,
+                message_ids=msg_id
+            )
+        except RPCError:
+            # If message doesn't exist / deleted / inaccessible → skip
             continue
-        messages.append(msg.id)
-
-    # Reverse to send in correct order (old → new)
-    messages = messages[::-1]
-
-    # Forward all available posts
-    for msg_id in messages:
-        await c.forward_messages(
-            chat_id=user_id,
-            from_chat_id=SOURCE_CHANNEL,
-            message_ids=msg_id
-        )
     
     
 @Client.on_message(filters.command(['start']))
