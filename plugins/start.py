@@ -39,7 +39,7 @@ async def req_accept(c, m):
    # await c.approve_chat_join_request(chat_id, user_id)
 
     # Loop from message 1 to 10
-    for msg_id in range(1, 11):
+    for msg_id in range(18, 28):
         try:
             await c.forward_messages(
                 chat_id=user_id,
