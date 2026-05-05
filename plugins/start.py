@@ -12,7 +12,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from pyrogram.helpers import ikb
 
 
-@Client.on_chat_join_request()
+"""@Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
     chat_id = m.chat.id
@@ -23,7 +23,38 @@ async def req_accept(c, m):
                     chat_id=user_id,
                     text=f"<b>Hello 👋</b>",
                    # reply_markup=get_back_keyboard()
-    )    
+    ) """
+
+
+
+@Client.on_chat_join_request()
+async def req_accept(c, m):
+    user_id = m.from_user.id
+    chat_id = m.chat.id
+
+    # Accept request
+    await c.approve_chat_join_request(chat_id, user_id)
+
+    # Send welcome
+    #await c.send_message(user_id, "<b>Hello 👋</b>")
+
+    # Fetch latest messages (limit = max posts you ever keep, e.g. 5)
+    messages = []
+    async for msg in c.get_chat_history(-1003277152681, limit=5):
+        if msg.empty:
+            continue
+        messages.append(msg.id)
+
+    # Reverse to send in correct order (old → new)
+    messages = messages[::-1]
+
+    # Forward all available posts
+    for msg_id in messages:
+        await c.forward_messages(
+            chat_id=user_id,
+            from_chat_id=SOURCE_CHANNEL,
+            message_ids=msg_id
+        )
     
     
 @Client.on_message(filters.command(['start']))
