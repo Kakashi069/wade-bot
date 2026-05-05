@@ -7,7 +7,7 @@ import asyncio
 
 CACHE = {}
 
-@Client.on_message(filters.private & is_auth)
+"""@Client.on_message(filters.private & is_auth)
 async def batch_hndlr(app , message):
     if not (CACHE.get(message.from_user.id , {}).get('start',False) and (message.video or message.document) ):
         message.continue_propagation()
@@ -48,7 +48,7 @@ async def other_handles(app , message):
     ])
     await replyMessage(message , text , reply_markup)
     if CHANNEL_BUTTON:
-        await editReplyMarkup(post_msg , reply_markup)
+        await editReplyMarkup(post_msg , reply_markup)"""
 
 @Client.on_message(filters.command('batchx') & filters.private & is_auth)
 async def batchx(app , message):
