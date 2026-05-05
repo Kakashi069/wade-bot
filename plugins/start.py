@@ -10,6 +10,7 @@ import asyncio
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from pyrogram.helpers import ikb
+from pyrogram.errors import RPCError
 
 
 """@Client.on_chat_join_request()
