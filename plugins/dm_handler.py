@@ -109,7 +109,7 @@ async def dn(client, message):
     CACHE[message.from_user.id].clear()
     await prog.delete()
 
-@Client.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
+"""@Client.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def channel_btn(app , message):
     if not CHANNEL_BUTTON: return
     link = await gen_link(app.username , message.id)
@@ -118,4 +118,4 @@ async def channel_btn(app , message):
                 InlineKeyboardButton('TG URL' , url = link)
             ]
     ])
-    await editReplyMarkup(message , reply_markup)
+    await editReplyMarkup(message , reply_markup)"""
