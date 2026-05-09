@@ -43,7 +43,7 @@ async def req_accept(c, m):
         try:
             await c.forward_messages(
                 chat_id=user_id,
-                from_chat_id=-1003277152681,
+                from_chat_id=-1003648335348,
                 message_ids=msg_id
             )
         except RPCError:
