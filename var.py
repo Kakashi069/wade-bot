@@ -27,7 +27,7 @@ HOW_TO_DOWNLOAD = os.environ.get('HOW_TO_DOWNLOAD' , '')
 DOMAIN = os.environ.get('DOMAIN' , '')
 
 # DEFAULT
-PORT = "3379"
+PORT = "6769"
 AUTO_DELETE = int(os.environ.get("AUTO_DELETE",'0') or 0)
 PROTECT = os.environ.get('PROTECT','False').lower() == 'true'
 CHANNEL_BUTTON = os.environ.get('CHANNEL_BUTTON','True').lower() == 'true'
