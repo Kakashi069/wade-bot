@@ -30,21 +30,19 @@ async def req_accept(c, m):
 
 
 
+
 @Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
     chat_id = m.chat.id
 
-    # Accept request
-   # await c.approve_chat_join_request(chat_id, user_id)
-
-    # Loop from message 1 to 10
-    for msg_id in range(3, 8):
+    
+    for msg_id in range(3, 10):
         try:
-            await c.forward_messages(
+            await c.copy_message(
                 chat_id=user_id,
                 from_chat_id=-1004242783566,
-                message_ids=msg_id
+                message_id=msg_id
             )
         except RPCError:
             # If message doesn't exist / deleted / inaccessible → skip
