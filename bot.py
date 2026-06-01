@@ -32,8 +32,8 @@ class Bot(Client):
         self.uptime = datetime.now()
         try:
             self.db_channel = await self.get_chat(CHANNEL_ID)
-            test = await self.send_message(chat_id = CHANNEL_ID, text = ".")
-            await test.delete()
+            #test = await self.send_message(chat_id = CHANNEL_ID, text = ".")
+            #await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(f"Check DB Channel !")
             self.LOGGER(__name__).info("\nBot Stopped !")
