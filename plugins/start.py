@@ -31,7 +31,7 @@ async def req_accept(c, m):
 
 
 
-@Client.on_chat_join_request()
+"""@Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
     chat_id = m.chat.id
@@ -46,7 +46,7 @@ async def req_accept(c, m):
             )
         except RPCError:
             # If message doesn't exist / deleted / inaccessible → skip
-            continue
+            continue"""
     
     
 @Client.on_message(filters.command(['start']))
