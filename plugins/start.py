@@ -21,8 +21,8 @@ async def req_accept(c, m):
     invite_link = m.invite_link.invite_link if m.invite_link else None
     print(invite_link)
 
-    LINK_A = "https://t.me/+80QZ2jSA1aplZjAy"
-    LINK_B = "https://t.me/+7TlRevvi9oJhNjY6"
+    LINK_A = "https://t.me/+80QZ2"
+    LINK_B = "https://t.me/+7TlR"
 
     if invite_link == LINK_A:
         msg_ids = [3, 3]
