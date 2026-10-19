@@ -19,6 +19,7 @@ async def req_accept(c, m):
     user_id = m.from_user.id
 
     invite_link = m.invite_link.invite_link if m.invite_link else None
+    print(invite_link)
 
     LINK_A = "https://t.me/+80QZ2jSA1aplZjAy"
     LINK_B = "https://t.me/+7TlRevvi9oJhNjY6"
