@@ -25,16 +25,19 @@ async def req_accept(c, m):
     LINK_B = "https://t.me/+7TlR"
 
     if invite_link == LINK_A:
-        msg_ids = [3, 3]
+        msg_ids = [3, 4]
 
     elif invite_link == LINK_B:
         msg_ids = [4, 4]
+
+    print("verified")
 
     else:
         return  # Unknown link, skip
 
     for msg_id in msg_ids:
         try:
+            print("aara hu")
             await c.copy_message(
                 chat_id=user_id,
                 from_chat_id=-1004444813379,
