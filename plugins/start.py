@@ -79,7 +79,7 @@ async def req_accept(c, m):
             continue
 
 
-LINK2 = "https://t.me/+7TlRevvi9oJhNjY6"
+"""LINK2 = "https://t.me/+7TlRevvi9oJhNjY6"
 
 def invite_link_filter2(link):
     async def func2(_, __, m):
@@ -102,7 +102,7 @@ async def req_accept2(c, m):
                 message_id=msg_id
             )
         except RPCError:
-            continue
+            continue"""
     
     
 @Client.on_message(filters.command(['start']))
