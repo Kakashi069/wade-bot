@@ -29,7 +29,7 @@ async def req_accept(c, m):
         msg_ids = [3, 4]
 
     elif invite_link and LINK_B in invite_link:
-        msg_ids = [4, 4]
+        msg_ids = [5, 6]
 
     else:
         print("Link match nahi hua!")
