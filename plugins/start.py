@@ -30,10 +30,12 @@ async def req_accept(c, m):
     elif invite_link == LINK_B:
         msg_ids = [4, 4]
 
-    print("verified")
+    
 
     else:
         return  # Unknown link, skip
+
+    print("verified")
 
     for msg_id in msg_ids:
         try:
