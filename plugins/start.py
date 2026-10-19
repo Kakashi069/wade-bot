@@ -13,62 +13,26 @@ from pyrogram.helpers import ikb
 from pyrogram.errors import RPCError
 
 
-"""@Client.on_chat_join_request()
+
+@Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
-    chat_id = m.chat.id
-        
-  #  if not Data.find_one({'id': user_id}): Data.insert_one({'id': user_id})
-    
-    await c.send_message(
-                    chat_id=user_id,
-                    text=f"<b>Hello 👋</b>",
-                   # reply_markup=get_back_keyboard()
-    ) """
 
+    invite_link = m.invite_link.invite_link if m.invite_link else None
 
+    LINK_A = "https://t.me/+80QZ2jSA1aplZjAy"
+    LINK_B = "https://t.me/+7TlRevvi9oJhNjY6"
 
+    if invite_link == LINK_A:
+        msg_ids = [3, 3]
 
+    elif invite_link == LINK_B:
+        msg_ids = [4, 4]
 
+    else:
+        return  # Unknown link, skip
 
-"""@Client.on_chat_join_request()
-async def req_accept(c, m):
-    user_id = m.from_user.id
-    chat_id = m.chat.id
-
-    
-    for msg_id in range(3, 10):
-        try:
-            await c.copy_message(
-                chat_id=user_id,
-                from_chat_id=-1004242783566,
-                message_id=msg_id
-            )
-        except RPCError:
-            # If message doesn't exist / deleted / inaccessible → skip
-            continue"""
-
-
-
-
-LINK = "https://t.me/+80QZ2jSA1aplZjAy"
-
-def invite_link_filter(link):
-    print("link worked")
-    async def func(_, __, m):
-        return (
-            m.invite_link is not None
-            and m.invite_link.invite_link == link
-        )
-    return filters.create(func)
-
-
-@Client.on_chat_join_request(invite_link_filter(LINK))
-async def req_accept(c, m):
-    print("req worked")
-    user_id = m.from_user.id
-
-    for msg_id in range(3, 3):
+    for msg_id in msg_ids:
         try:
             await c.copy_message(
                 chat_id=user_id,
@@ -76,33 +40,8 @@ async def req_accept(c, m):
                 message_id=msg_id
             )
         except RPCError:
-            continue
-
-
-"""LINK2 = "https://t.me/+7TlRevvi9oJhNjY6"
-
-def invite_link_filter2(link):
-    async def func2(_, __, m):
-        return (
-            m.invite_link is not None
-            and m.invite_link.invite_link == link2
-        )
-    return filters.create(func2)
-
-
-@Client.on_chat_join_request(invite_link_filter(LINK2))
-async def req_accept2(c, m):
-    user_id = m.from_user.id
-
-    for msg_id in range(4, 4):
-        try:
-            await c.copy_message(
-                chat_id=user_id,
-                from_chat_id=-1004444813379,
-                message_id=msg_id
-            )
-        except RPCError:
-            continue"""
+            continue 
+            
     
     
 @Client.on_message(filters.command(['start']))
