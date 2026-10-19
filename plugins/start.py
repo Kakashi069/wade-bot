@@ -54,6 +54,7 @@ async def req_accept(c, m):
 LINK = "https://t.me/+80QZ2jSA1aplZjAy"
 
 def invite_link_filter(link):
+    print("link worked")
     async def func(_, __, m):
         return (
             m.invite_link is not None
@@ -64,6 +65,7 @@ def invite_link_filter(link):
 
 @Client.on_chat_join_request(invite_link_filter(LINK))
 async def req_accept(c, m):
+    print("req worked")
     user_id = m.from_user.id
 
     for msg_id in range(3, 3):
