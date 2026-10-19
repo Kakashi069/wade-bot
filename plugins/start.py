@@ -14,41 +14,44 @@ from pyrogram.errors import RPCError
 
 
 
+
 @Client.on_chat_join_request()
 async def req_accept(c, m):
     user_id = m.from_user.id
 
     invite_link = m.invite_link.invite_link if m.invite_link else None
-    print(invite_link)
+    print("Invite link:", repr(invite_link))
 
-    LINK_A = "https://t.me/+80QZ2jSA"
-    LINK_B = "https://t.me/+7TlR"
+    LINK_A = "80QZ2jSA"
+    LINK_B = "7TlR"
 
-    if invite_link == LINK_A:
+    if invite_link and LINK_A in invite_link:
         msg_ids = [3, 4]
 
-    elif invite_link == LINK_B:
+    elif invite_link and LINK_B in invite_link:
         msg_ids = [4, 4]
 
-    
-
     else:
-        return  # Unknown link, skip
+        print("Link match nahi hua!")
+        return
 
     print("verified")
 
     for msg_id in msg_ids:
         try:
-            print("aara hu")
-            await c.copy_message(
+            print(f"Copy kar raha hu: {msg_id}")
+
+            result = await c.copy_message(
                 chat_id=user_id,
                 from_chat_id=-1004444813379,
                 message_id=msg_id
             )
-        except RPCError:
-            continue 
-            
-    
+
+            print(f"Message {msg_id} copy ho gaya")
+
+        except RPCError as e:
+            print(f"Message {msg_id} copy error: {e}")
+
     
 @Client.on_message(filters.command(['start']))
 async def start(app , message):
