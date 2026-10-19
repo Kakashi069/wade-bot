@@ -47,6 +47,60 @@ async def req_accept(c, m):
         except RPCError:
             # If message doesn't exist / deleted / inaccessible → skip
             continue"""
+
+
+
+
+LINK = "https://t.me/+80QZ2jSA1aplZjAy"
+
+def invite_link_filter(link):
+    async def func(_, __, m):
+        return (
+            m.invite_link is not None
+            and m.invite_link.invite_link == link
+        )
+    return filters.create(func)
+
+
+@Client.on_chat_join_request(invite_link_filter(LINK))
+async def req_accept(c, m):
+    user_id = m.from_user.id
+
+    for msg_id in range(3, 3):
+        try:
+            await c.copy_message(
+                chat_id=user_id,
+                from_chat_id=-1004444813379,
+                message_id=msg_id
+            )
+        except RPCError:
+            continue
+
+
+LINK2 = "https://t.me/+7TlRevvi9oJhNjY6"
+
+def invite_link_filter2(link):
+    async def func2(_, __, m):
+        return (
+            m.invite_link is not None
+            and m.invite_link.invite_link == link2
+        )
+    return filters.create(func2)
+
+
+@Client.on_chat_join_request(invite_link_filter(LINK2))
+async def req_accept2(c, m):
+    user_id = m.from_user.id
+
+    for msg_id in range(4, 4):
+        try:
+            await c.copy_message(
+                chat_id=user_id,
+                from_chat_id=-1004444813379,
+                message_id=msg_id
+            )
+        except RPCError:
+            continue
     
     
 @Client.on_message(filters.command(['start']))
