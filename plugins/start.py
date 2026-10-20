@@ -22,18 +22,18 @@ async def req_accept(c, m):
     invite_link = m.invite_link.invite_link if m.invite_link else None
     print("Invite link:", repr(invite_link))
 
-    LINK_A = "80QZ2jSA"
-    LINK_B = "7TlR"
-    LINK_C = "pVG2MH2"
+    LINK_A = "YEWclE"
+    LINK_B = "ufPF"
+    LINK_C = "RISjiB"
 
     if invite_link and LINK_A in invite_link:
-        msg_ids = [7, 8]
+        msg_ids = [13, 14]
 
     elif invite_link and LINK_B in invite_link:
-        msg_ids = [9, 10]
+        msg_ids = [15, 16]
 
     elif invite_link and LINK_C in invite_link:
-        msg_ids = [11, 12]
+        msg_ids = [7, 8]
 
     else:
         print("Link match nahi hua!")
