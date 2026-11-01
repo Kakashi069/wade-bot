@@ -22,7 +22,7 @@ async def req_accept(c, m):
     invite_link = m.invite_link.invite_link if m.invite_link else None
     print("Invite link:", repr(invite_link))
 
-    LINK_A = "YEWclE"
+    LINK_A = "JdsaOL"
     LINK_B = "ufPF"
     LINK_C = "RISjiB"
 
