@@ -26,7 +26,7 @@ async def req_accept(c, m):
     LINK_B = "IMhvBbKD"
     LINK_C = "JbrJETKg"
     LINK_D = "NcATvhpd"
-    LINK_E = "s9MgPoblB"
+    LINK_E = "s9MgP"
     LINK_F = "9bYIQaRRU"
 
     if invite_link and LINK_A in invite_link:
