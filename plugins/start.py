@@ -22,11 +22,11 @@ async def req_accept(c, m):
     invite_link = m.invite_link.invite_link if m.invite_link else None
     print("Invite link:", repr(invite_link))
 
-    LINK_A = "Zj_3Sl"
+    LINK_A = "GFF4-05"
     LINK_B = "IMhvBbKD"
-    LINK_C = "JbrJETKg"
+    LINK_C = "i9NZqXlb"
     LINK_D = "NcATvhpd"
-    LINK_E = "s9MgP"
+    LINK_E = "dJuYMFGJieZ"
     LINK_F = "9bYIQaRRU"
 
     if invite_link and LINK_A in invite_link:
